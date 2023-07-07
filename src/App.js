@@ -9,16 +9,24 @@ import {
 
 import Home from "./pages/Home"
 import About from "./pages/About"
+import Faq from './pages/Help/faq'
+import Contact from './pages/Help/contact'
 
 //layouts
 import RouteLayout from './Layout/RouteLayout'
+import HelpLayout from './Layout/HelpLayout'
+
 
 
 const router = createBrowserRouter(
   createRoutesFromElements(
       <Route path="/" element={<RouteLayout></RouteLayout>}>
           <Route path="/" element={<Home></Home>}></Route>
-          <Route path="/about" element={<About></About>}></Route>
+          <Route path="about" element={<About></About>}></Route>
+          <Route path="help" element={<HelpLayout></HelpLayout>}>
+            <Route path="faq" element={<Faq></Faq>} ></Route>
+            <Route path="contact" element={<Contact></Contact>} ></Route>
+          </Route>
       </Route>
   )
 )
