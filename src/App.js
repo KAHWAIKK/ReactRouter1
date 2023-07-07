@@ -9,9 +9,14 @@ import {
 
 import Home from "./pages/Home"
 import About from "./pages/About"
+import Faq from "./pages/help/Faq"
+import Contact from "./pages/help/Contact"
+
 
 //layouts
 import RouteLayout from './Layout/RouteLayout'
+import HelpLayout from './Layout/HelpLayout'
+import NotFound from "./pages/NotFound"
 
 
 const router = createBrowserRouter(
@@ -19,7 +24,14 @@ const router = createBrowserRouter(
       <Route path="/" element={<RouteLayout></RouteLayout>}>
           <Route path="/" element={<Home></Home>}></Route>
           <Route path="/about" element={<About></About>}></Route>
+          <Route path="/help" element={<HelpLayout></HelpLayout>}>
+            <Route path="faq" element={<Faq></Faq>} ></Route>
+            <Route path="contact" element={<Contact></Contact>}></Route>
+          </Route>
+          
+          <Route path="*" element={<NotFound></NotFound>}></Route>
       </Route>
+      
   )
 )
 
