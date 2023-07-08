@@ -35,10 +35,16 @@ export default Careers
 
  */
 
-import { Link, useLoaderData } from "react-router-dom"
+import { Link } from "react-router-dom"
 
-export default function Careers() {
-  const careers = useLoaderData()
+// data loader
+export const careersloader = async () => {
+  const res = await fetch('http://localhost:5000/careers') 
+
+  const careers = res.json()
+
+//export default function Careers() {
+  //const careers = useLoaderData()
 
   return (
     <div className="careers">
@@ -52,9 +58,4 @@ export default function Careers() {
   )
 }
 
-// data loader
-export const careersloader = async () => {
-  const res = await fetch('http://localhost:5000/careers') 
 
-  return res.json()
-}
